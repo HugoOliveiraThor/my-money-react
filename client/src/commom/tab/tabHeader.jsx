@@ -1,4 +1,9 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import { selectTab } from './tabActions'
+
 // javascript:; - ignora qualquer link
 class TabHeader extends Component {
     render() {
@@ -13,5 +18,6 @@ class TabHeader extends Component {
         ) 
     }
 }
-
-export default TabHeader
+const mapStateToProps = state => ({ tab: state.tab })
+const mapDispatchToProps = dispatch => bindActionCreators({selectTab}, dispatch)
+export default connect(mapStateToProps,mapDispatchToProps)(TabHeader)
