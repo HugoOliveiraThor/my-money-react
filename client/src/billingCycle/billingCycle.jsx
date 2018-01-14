@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-
-
 import ContentHeader from '../commom/template/contentHeader'
 import Content from '../commom/template/content'
 import Tabs from '../commom/tab/tabs'
