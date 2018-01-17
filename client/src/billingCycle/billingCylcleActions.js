@@ -18,8 +18,19 @@ export function getList() {
 }
 //Somente é possivel fazer um dispatch dessa maneira por causa do REDUX MULTI 
 export function create(values) {
+    return submit(values, 'post')
+}
+export function update(values) {
+    return submit(values, 'put')
+}
+export function deleta(values) {
+    return submit(values, 'delete')
+}
+
+function submit(values, method) {
     return dispatch => {
-        axios.post(`${BASE_URL}/billingCycles`, values).then(resp => {
+        const id = values._id ? values._id : ''
+        axios[method](`${BASE_URL}/billingCycles/${id}`, values).then(resp => {
             toastr.success('Sucesso','Operação realizada com sucesso!')
             dispatch(init())
         }).catch(e => {
@@ -30,6 +41,8 @@ export function create(values) {
         }
     }
 }
+
+
 export function showUpdate(billingCycle) {
     return [
         showTabs('tabUpdate'),
