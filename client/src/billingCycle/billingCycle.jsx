@@ -10,7 +10,7 @@ import TabsContent from '../commom/tab/tabsContent'
 import TabHeader from '../commom/tab/tabHeader'
 import TabContent from '../commom/tab/tabContent'
 import { selectTab, showTabs } from '../commom/tab/tabActions'
-import { create, update } from '../billingCycle/billingCylcleActions'
+import { create, update , deleta } from '../billingCycle/billingCylcleActions'
 import List from './billingCycleList'
 import Form from './billingCycleForm'
 
@@ -43,7 +43,7 @@ class BillingCycle extends Component {
                                 <Form onSubmit={this.props.update} />
                             </TabContent>
                             <TabContent id='tabDelete'>
-                                <h1>Delete</h1>
+                            <Form onSubmit={this.props.deleta} />
                             </TabContent>
                         </TabsContent>
                     </Tabs>
@@ -52,5 +52,5 @@ class BillingCycle extends Component {
         )
     }
 }
-const mapDispatchToProps = dispatch =>  bindActionCreators({selectTab, showTabs, create, update}, dispatch)
+const mapDispatchToProps = dispatch =>  bindActionCreators({selectTab, showTabs, create, update, deleta}, dispatch)
 export default connect(null,mapDispatchToProps)(BillingCycle)
