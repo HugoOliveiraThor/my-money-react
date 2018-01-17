@@ -30,6 +30,6 @@ class BillingCycleForm extends Component {
         )
     }
 }
-
-export default reduxForm({form: 'billingCycleForm'})(BillingCycleForm)
+// Com a flag , destroyOnUnmount eu consigo ter a possibilidade de usar quando o componente for destruido os dados do formulario não irem juntos 
+export default reduxForm({form: 'billingCycleForm', destroyOnUnmount: false})(BillingCycleForm)
 
